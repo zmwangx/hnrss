@@ -31,10 +31,10 @@
         <h1>
 <a name="hnrss--hacker-news-rss" class="anchor" href="#hnrss--hacker-news-rss"><span class="octicon octicon-link"></span></a>hnrss — Hacker News RSS</h1>
 
-<p>hnrss provides a variety of RSS feeds for Hacker News.</p>
+<p>hnrss provides custom, realtime RSS feeds for Hacker News.</p>
 
 <h2>
-<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a name="feeds" class="anchor" href="#feeds"><span class="octicon octicon-link"></span></a>Feeds</h2>
 
 <p>The following feeds are available:</p>
 
@@ -55,7 +55,75 @@
 </li>
 <li>
 <strong>Searches</strong> — New <a href="http://hnrss.org/newest?q=git">posts</a> and <a href="http://hnrss.org/newcomments?q=django">comments</a> matching a given search term</li>
-</ul><h2>
+</ul><h3>
+<a name="firehose" class="anchor" href="#firehose"><span class="octicon octicon-link"></span></a>Firehose</h3>
+
+<p>The "firehose" feeds contains all new <a href="http://hnrss.org/newest">posts</a> and <a href="http://hnrss.org/newcomments">comments</a> as they appear on Hacker News.</p>
+
+<h3>
+<a name="points" class="anchor" href="#points"><span class="octicon octicon-link"></span></a>Points</h3>
+
+<p>Maybe you like the idea of the firehose, but want to slow it down just a <em>bit.</em> You can do that with the <code>?points=X</code> filter. With this filter added on to a firehose feed, only posts or comments with more than X points will be included.</p>
+
+<p>So, for example, here's a feed of <a href="http://hnrss.org/newest?points=200">posts with 200+ points</a> and <a href="http://hnrss.org/newcomments?points=100">comments with 100+ points</a>.</p>
+
+<h4>
+<a name="caveat-comments-and-the-points-filter" class="anchor" href="#caveat-comments-and-the-points-filter"><span class="octicon octicon-link"></span></a>Caveat: Comments and the points filter</h4>
+
+<p>There is one thing you should know when using the points filter on comments: It takes five days for point values on comments to be accurately reported via the Algolia API. What this means is there is a five day delay between when a comment is posted and when it shows up in an RSS feed when using the points filter.</p>
+
+<p>This is a <a href="https://github.com/algolia/hn-search/issues/29#issuecomment-41527957">known issue</a>. My guess is the volatile nature of comment voting makes it more trouble than its worth to report a comment's realtime points value.</p>
+
+<p><strong>Note:</strong> <a href="http://hnrss.org/newcomments">The comments firehose</a> itself doesn't have this limitation, its only when using the points filter.</p>
+
+<h3>
+<a name="activity" class="anchor" href="#activity"><span class="octicon octicon-link"></span></a>Activity</h3>
+
+<p>Similar to the points filter, you can also filter posts based the number of comments it has.</p>
+
+<p>For example, here's an RSS feed with <a href="http://hnrss.org/newest?comments=25">all posts containing 25+ comments</a>.</p>
+
+<h3>
+<a name="self-posts" class="anchor" href="#self-posts"><span class="octicon octicon-link"></span></a>Self-posts</h3>
+
+<p>More and more people are turning to Hacker News to ask questions and show off their projects.</p>
+
+<p>hnrss provides feeds for <a href="http://hnrss.org/ask">all "Ask HN" posts</a> and <a href="http://hnrss.org/show">all "Show HN" posts</a> along with all <a href="http://hnrss.org/polls">polls</a> as they appear on the site.</p>
+
+<h3>
+<a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
+
+<p>After reading Hacker News for awhile, you begin to recognize certain usernames. So if you enjoy patio11's business advice, or tptacek's crypto knowledge, or Matt_Cutts's take on web spam and don't want to miss what they have to say, subscribe to their RSS feed.</p>
+
+<ul>
+<li>For an RSS feed with both posts and comments: <code>/user?id=USERNAME</code>
+</li>
+<li>For an RSS feed with just posts: <code>/submitted?id=USERNAME</code>
+</li>
+<li>For an RSS feed with just comments: <code>/threads?id=USERNAME</code>
+</li>
+</ul><h3>
+<a name="threads" class="anchor" href="#threads"><span class="octicon octicon-link"></span></a>Threads</h3>
+
+<p>If there's some thread you're particularly interested in, you can subscribe to an RSS feed with new comments in that thread at <code>/item?id=THREAD_ID</code></p>
+
+<h3>
+<a name="searches" class="anchor" href="#searches"><span class="octicon octicon-link"></span></a>Searches</h3>
+
+<p>Say you're a Django developer and want an RSS feed with every post and/or comment mentioning Django.</p>
+
+<p>To filter on a search query, pass <code>?q=SEARCH_TERM</code> to any of the above feeds.</p>
+
+<p>So, for all new posts mentioning Django: <code>/newest?q=Django</code>.</p>
+
+<p>You can also do the same for new comments via <code>/newcomments?q=Django</code>.</p>
+
+<h2>
+<a name="url-structure" class="anchor" href="#url-structure"><span class="octicon octicon-link"></span></a>URL structure</h2>
+
+<p>All of the feeds try to mirror aspects of the Hacker News website. You'll see this reflected in the URL structure.</p>
+
+<h2>
 <a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
 
 <p>hnrss is powered by <a href="https://hn.algolia.com/api">Algolia</a>, the
