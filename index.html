@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Hacker News RSS by edavis</title>
+    <title>hnrss by edavis</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -15,8 +15,8 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Hacker News RSS</h1>
-        <p>Custom RSS feeds for Hacker News</p>
+        <h1>hnrss</h1>
+        <p>Custom, realtime RSS feeds for Hacker News</p>
 
         <p class="view"><a href="https://github.com/edavis/hnrss">View the Project on GitHub <small>edavis/hnrss</small></a></p>
 
@@ -29,7 +29,7 @@
       </header>
       <section>
         <h1>
-<a name="hnrss--hacker-news-rss" class="anchor" href="#hnrss--hacker-news-rss"><span class="octicon octicon-link"></span></a>hnrss — Hacker News RSS</h1>
+<a name="hacker-news-rss-feeds" class="anchor" href="#hacker-news-rss-feeds"><span class="octicon octicon-link"></span></a>Hacker News RSS feeds</h1>
 
 <p>hnrss provides custom, realtime RSS feeds for Hacker News.</p>
 
@@ -86,42 +86,36 @@
 <h3>
 <a name="self-posts" class="anchor" href="#self-posts"><span class="octicon octicon-link"></span></a>Self-posts</h3>
 
-<p>More and more people are turning to Hacker News to ask questions and show off their projects.</p>
-
-<p>hnrss provides feeds for <a href="http://hnrss.org/ask">all "Ask HN" posts</a> and <a href="http://hnrss.org/show">all "Show HN" posts</a> along with all <a href="http://hnrss.org/polls">polls</a> as they appear on the site.</p>
+<p>If you're looking for RSS feeds for <a href="http://hnrss.org/ask">Ask HN</a>, <a href="http://hnrss.org/show">Show HN</a>, or <a href="http://hnrss.org/polls">polls</a>, we've got you covered.</p>
 
 <h3>
 <a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
 
-<p>After reading Hacker News for awhile, you begin to recognize certain usernames. So if you enjoy patio11's business advice, or tptacek's crypto knowledge, or Matt_Cutts's take on web spam and don't want to miss what they have to say, subscribe to their RSS feed.</p>
+<p>If you don't want to miss a post or comment by a given user, you can subscribe to that user's RSS feed.</p>
+
+<p>The URLs for both posts and comments, just posts, and just comments are (respectively):</p>
 
 <ul>
-<li>For an RSS feed with both posts and comments: <code>/user?id=USERNAME</code>
-</li>
-<li>For an RSS feed with just posts: <code>/submitted?id=USERNAME</code>
-</li>
-<li>For an RSS feed with just comments: <code>/threads?id=USERNAME</code>
-</li>
-</ul><h3>
+<li><a href="http://hnrss.org/user?id=USERNAME">http://hnrss.org/user?id=USERNAME</a></li>
+<li><a href="http://hnrss.org/submitted?id=USERNAME">http://hnrss.org/submitted?id=USERNAME</a></li>
+<li><a href="http://hnrss.org/threads?id=USERNAME">http://hnrss.org/threads?id=USERNAME</a></li>
+</ul><p>With <code>USERNAME</code> replaced with the username in question.</p>
+
+<p>As a shortcut, when on a user's <a href="https://news.ycombinator.com/user?id=tptacek">profile page</a> you can replace "<a href="https://news.ycombinator.com/">https://news.ycombinator.com/</a>" with "<a href="http://hnrss.org/">http://hnrss.org/</a>". This also works on a user's <a href="https://news.ycombinator.com/submitted?id=tptacek">submitted</a> and <a href="https://news.ycombinator.com/threads?id=tptacek">comments</a> pages.</p>
+
+<h3>
 <a name="threads" class="anchor" href="#threads"><span class="octicon octicon-link"></span></a>Threads</h3>
 
-<p>If there's some thread you're particularly interested in, you can subscribe to an RSS feed with new comments in that thread at <code>/item?id=THREAD_ID</code></p>
+<p>If there's some thread you're particularly interested in, you can subscribe its RSS containing new comments in that thread at <a href="http://hnrss.org/item?id=THREAD_ID">http://hnrss.org/item?id=THREAD_ID</a>.</p>
+
+<p><code>THREAD_ID</code> is the number after <code>?id=</code> when viewing a post's comments page (<a href="https://news.ycombinator.com/item?id=7895504">Example</a>). Or, as a shortcut, replace "<a href="https://news.ycombinator.com/">https://news.ycombinator.com/</a>" with "<a href="http://hnrss.org/">http://hnrss.org/</a>" when on a comments page to get the RSS feed.</p>
 
 <h3>
 <a name="searches" class="anchor" href="#searches"><span class="octicon octicon-link"></span></a>Searches</h3>
 
-<p>Say you're a Django developer and want an RSS feed with every post and/or comment mentioning Django.</p>
+<p>You can also filter based on search terms via the <code>?q=SEARCH_TERM</code> query filter.</p>
 
-<p>To filter on a search query, pass <code>?q=SEARCH_TERM</code> to any of the above feeds.</p>
-
-<p>So, for all new posts mentioning Django: <code>/newest?q=Django</code>.</p>
-
-<p>You can also do the same for new comments via <code>/newcomments?q=Django</code>.</p>
-
-<h2>
-<a name="url-structure" class="anchor" href="#url-structure"><span class="octicon octicon-link"></span></a>URL structure</h2>
-
-<p>All of the feeds try to mirror aspects of the Hacker News website. You'll see this reflected in the URL structure.</p>
+<p>For example, here's a feed of all <a href="http://hnrss.org/newest?q=Django">new posts that mention "Django"</a> and all <a href="http://hnrss.org/newcomments?q=git">new comments that mention "git"</a>.</p>
 
 <h2>
 <a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
