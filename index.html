@@ -29,12 +29,12 @@
       </header>
       <section>
         <h1>
-<a name="hacker-news-rss-feeds" class="anchor" href="#hacker-news-rss-feeds"><span class="octicon octicon-link"></span></a>Hacker News RSS feeds</h1>
+<a id="hacker-news-rss-feeds" class="anchor" href="#hacker-news-rss-feeds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacker News RSS feeds</h1>
 
 <p>hnrss provides custom, realtime RSS feeds for Hacker News.</p>
 
 <h2>
-<a name="feeds" class="anchor" href="#feeds"><span class="octicon octicon-link"></span></a>Feeds</h2>
+<a id="feeds" class="anchor" href="#feeds" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feeds</h2>
 
 <p>The following feeds are available:</p>
 
@@ -42,7 +42,7 @@
 <li>
 <strong>Firehose</strong> — Every new <a href="http://hnrss.org/newest">post</a> and <a href="http://hnrss.org/newcomments">comment</a> as it arrives</li>
 <li>
-<strong>Points</strong> — <a href="http://hnrss.org/newest?points=300">Posts</a> and <a href="http://hnrss.org/newcomments?points=25">comments</a> with more than N points</li>
+<strong>Points</strong> — <a href="http://hnrss.org/newest?points=300">Posts</a> with more than N points</li>
 <li>
 <strong>Activity</strong> — <a href="http://hnrss.org/newest?comments=250">Posts</a> with more than N comments</li>
 <li>
@@ -55,41 +55,36 @@
 </li>
 <li>
 <strong>Searches</strong> — New <a href="http://hnrss.org/newest?q=git">posts</a> and <a href="http://hnrss.org/newcomments?q=django">comments</a> matching a given search term</li>
-</ul><h3>
-<a name="firehose" class="anchor" href="#firehose"><span class="octicon octicon-link"></span></a>Firehose</h3>
+</ul>
+
+<h3>
+<a id="firehose" class="anchor" href="#firehose" aria-hidden="true"><span class="octicon octicon-link"></span></a>Firehose</h3>
 
 <p>The "firehose" feeds contains all new <a href="http://hnrss.org/newest">posts</a> and <a href="http://hnrss.org/newcomments">comments</a> as they appear on Hacker News.</p>
 
 <h3>
-<a name="points" class="anchor" href="#points"><span class="octicon octicon-link"></span></a>Points</h3>
+<a id="points" class="anchor" href="#points" aria-hidden="true"><span class="octicon octicon-link"></span></a>Points</h3>
 
-<p>Maybe you like the idea of the firehose, but want to slow it down just a <em>bit.</em> You can do that with the <code>?points=X</code> filter. With this filter added on to a firehose feed, only posts or comments with more than X points will be included.</p>
+<p>Maybe you like the idea of the firehose, but want to slow it down just a <em>bit.</em> You can do that with the <code>?points=N</code> filter. With this filter added on to a firehose feed, only posts with more than N points will be shown.</p>
 
-<p>So, for example, here's a feed of <a href="http://hnrss.org/newest?points=200">posts with 200+ points</a> and <a href="http://hnrss.org/newcomments?points=100">comments with 100+ points</a>.</p>
+<p>So, for example, here's a feed of <a href="http://hnrss.org/newest?points=200">posts with 200+ points</a>.</p>
 
-<h4>
-<a name="caveat-comments-and-the-points-filter" class="anchor" href="#caveat-comments-and-the-points-filter"><span class="octicon octicon-link"></span></a>Caveat: Comments and the points filter</h4>
-
-<p>There is one thing you should know when using the points filter on comments: It takes five days for point values on comments to be accurately reported via the Algolia API. What this means is there is a five day delay between when a comment is posted and when it shows up in an RSS feed when using the points filter.</p>
-
-<p>This is a <a href="https://github.com/algolia/hn-search/issues/29#issuecomment-41527957">known issue</a>. My guess is the volatile nature of comment voting makes it more trouble than its worth to report a comment's realtime points value.</p>
-
-<p>Note: <a href="http://hnrss.org/newcomments">The comments firehose</a> itself doesn't have this limitation, its only when using the points filter.</p>
+<p><strong>Note:</strong> The <code>points=N</code> filter doesn't work with <code>/newcomments</code>. This is <a href="https://github.com/algolia/hn-search/issues/55#issuecomment-73599729">by design</a>.</p>
 
 <h3>
-<a name="activity" class="anchor" href="#activity"><span class="octicon octicon-link"></span></a>Activity</h3>
+<a id="activity" class="anchor" href="#activity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Activity</h3>
 
 <p>Similar to the points filter, you can also filter posts based the number of comments it has.</p>
 
 <p>For example, here's an RSS feed with <a href="http://hnrss.org/newest?comments=25">all posts containing 25+ comments</a>.</p>
 
 <h3>
-<a name="self-posts" class="anchor" href="#self-posts"><span class="octicon octicon-link"></span></a>Self-posts</h3>
+<a id="self-posts" class="anchor" href="#self-posts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Self-posts</h3>
 
 <p>If you're looking for RSS feeds for <a href="http://hnrss.org/ask">Ask HN</a>, <a href="http://hnrss.org/show">Show HN</a>, or <a href="http://hnrss.org/polls">polls</a>, we've got you covered.</p>
 
 <h3>
-<a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
+<a id="users" class="anchor" href="#users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Users</h3>
 
 <p>If you don't want to miss a post or comment by a given user, you can subscribe to that user's RSS feed.</p>
 
@@ -99,26 +94,37 @@
 <li><a href="http://hnrss.org/user?id=USERNAME">http://hnrss.org/user?id=USERNAME</a></li>
 <li><a href="http://hnrss.org/submitted?id=USERNAME">http://hnrss.org/submitted?id=USERNAME</a></li>
 <li><a href="http://hnrss.org/threads?id=USERNAME">http://hnrss.org/threads?id=USERNAME</a></li>
-</ul><p>With <code>USERNAME</code> replaced with the username in question.</p>
+</ul>
+
+<p>With <code>USERNAME</code> replaced with the username in question.</p>
 
 <p>As a shortcut, when on a user's <a href="https://news.ycombinator.com/user?id=tptacek">profile page</a> you can replace "<a href="https://news.ycombinator.com">https://news.ycombinator.com</a>" with "<a href="http://hnrss.org">http://hnrss.org</a>". This also works on a user's <a href="https://news.ycombinator.com/submitted?id=tptacek">submitted</a> and <a href="https://news.ycombinator.com/threads?id=tptacek">comments</a> pages.</p>
 
 <h3>
-<a name="threads" class="anchor" href="#threads"><span class="octicon octicon-link"></span></a>Threads</h3>
+<a id="threads" class="anchor" href="#threads" aria-hidden="true"><span class="octicon octicon-link"></span></a>Threads</h3>
 
 <p>If there's some thread you're particularly interested in, you can subscribe its RSS containing new comments in that thread at <a href="http://hnrss.org/item?id=THREAD_ID">http://hnrss.org/item?id=THREAD_ID</a>.</p>
 
 <p><code>THREAD_ID</code> is the number after <code>?id=</code> when viewing a post's comments page (<a href="https://news.ycombinator.com/item?id=7895504">Example</a>). Or, as a shortcut, replace "<a href="https://news.ycombinator.com">https://news.ycombinator.com</a>" with "<a href="http://hnrss.org">http://hnrss.org</a>" when on a comments page to get the RSS feed.</p>
 
 <h3>
-<a name="searches" class="anchor" href="#searches"><span class="octicon octicon-link"></span></a>Searches</h3>
+<a id="searches" class="anchor" href="#searches" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searches</h3>
 
 <p>You can also filter based on search terms via the <code>?q=SEARCH_TERM</code> query filter.</p>
 
 <p>For example, here's a feed of all <a href="http://hnrss.org/newest?q=Django">new posts that mention "Django"</a> and all <a href="http://hnrss.org/newcomments?q=git">new comments that mention "git"</a>.</p>
 
+<h3>
+<a id="misc" class="anchor" href="#misc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Misc.</h3>
+
+<p>By default, the RSS <code>&lt;link&gt;</code> element points to the submitted article's URL. The <code>&lt;link&gt;</code> element can be changed to point to the Hacker News comment page by appending <code>?link=comments</code> to the end of the URL. See <a href="http://hnrss.org/newest?link=comments">here</a> for an example.</p>
+
+<p>The RSS <code>&lt;description&gt;</code> element contains a link to the comment page when <code>&lt;link&gt;</code> points the article (i.e., the default) and a link to the article when <code>&lt;link&gt;</code> points to the comment page (e.g., with <code>?link=comments</code>). This way you can easily get to either page.</p>
+
+<p>You can disable the <code>&lt;description&gt;</code> element entirely by passing <code>?description=0</code> to a <a href="http://hnrss.org/newest?description=0">URL</a>.</p>
+
 <h2>
-<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
 
 <p>hnrss is powered by <a href="https://hn.algolia.com/api">Algolia</a>, the
 <a href="https://news.ycombinator.com/item?id=7547578">official Hacker News API provider</a>.</p>
