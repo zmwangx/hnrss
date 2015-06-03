@@ -6,7 +6,7 @@
     <title>hnrss by edavis</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -114,6 +114,19 @@
 
 <p>For example, here's a feed of all <a href="http://hnrss.org/newest?q=Django">new posts that mention "Django"</a> and all <a href="http://hnrss.org/newcomments?q=git">new comments that mention "git"</a>.</p>
 
+<p>By default, searches only look at post titles. This is probably what you'll want 95% of the time, but this behavior can be customized. Here's a few examples:</p>
+
+<ul>
+<li>
+<a href="http://hnrss.org/newest?q=Wordpress">http://hnrss.org/newest?q=Wordpress</a> — Search for articles with 'Wordpress' in the post title only.</li>
+<li>
+<a href="http://hnrss.org/newest?q=Wordpress&amp;search_attrs=url">http://hnrss.org/newest?q=Wordpress&amp;search_attrs=url</a> — Search for articles with 'Wordpress' in the post URL only.</li>
+<li>
+<a href="http://hnrss.org/newest?q=Wordpress&amp;search_attrs=title,url">http://hnrss.org/newest?q=Wordpress&amp;search_attrs=title,url</a> — Search for articles with 'Wordpress' in the post title or URL.</li>
+<li>
+<a href="http://hnrss.org/newest?q=Wordpress&amp;search_attrs=default">http://hnrss.org/newest?q=Wordpress&amp;search_attrs=default</a> — Don't restrict search attributes at all. This searches for articles containing 'Wordpress' in all attributes indexed by Algolia. This was the behavior of searches prior to June 3, 2015.</li>
+</ul>
+
 <h3>
 <a id="misc" class="anchor" href="#misc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Misc.</h3>
 
@@ -122,6 +135,8 @@
 <p>The RSS <code>&lt;description&gt;</code> element contains a link to the comment page when <code>&lt;link&gt;</code> points the article (i.e., the default) and a link to the article when <code>&lt;link&gt;</code> points to the comment page (e.g., with <code>?link=comments</code>). This way you can easily get to either page.</p>
 
 <p>You can disable the <code>&lt;description&gt;</code> element entirely by passing <code>?description=0</code> to a <a href="http://hnrss.org/newest?description=0">URL</a>.</p>
+
+<p>You can combine multiple filters with the ampersand character ('&amp;'). For example, here's the URL for all posts with "git" in the title and that have more than 25 points: <a href="http://hnrss.org/newest?q=git&amp;search_attrs=title&amp;points=25">http://hnrss.org/newest?q=git&amp;search_attrs=title&amp;points=25</a>.</p>
 
 <h2>
 <a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
