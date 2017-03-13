@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from api import API
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template
 from flask_compress import Compress
 from rss import RSS
 try:
@@ -137,7 +137,7 @@ def author_redirect(author):
 @app.route('/feeds/')
 @app.route('/')
 def index():
-    return redirect('https://edavis.github.io/hnrss/')
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
