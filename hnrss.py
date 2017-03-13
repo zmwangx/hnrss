@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from api import API
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, send_from_directory
 from flask_compress import Compress
 from rss import RSS
 try:
@@ -138,6 +138,10 @@ def author_redirect(author):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(app.root_path, 'favicon.ico', mimetype='image/x-icon')
 
 if __name__ == '__main__':
     app.run(debug=True)
